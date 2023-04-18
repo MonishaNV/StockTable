@@ -1,4 +1,5 @@
 /.idea/.idea.SignalRStocks/.idea/*
-/SignalRStocks/bin/
-/SignalRStocks/obj
+/.vs
+/StockUi/bin/
+/StockUi/obj
 /.idea/.idea.SignalRStocks/riderModule.iml

@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRStocks", "SignalRStocks\SignalRStocks.csproj", "{E41C4870-9BBD-4C65-AD2D-7FE641ADE267}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockUi", "StockUi\StockUi.csproj", "{96D882E1-3201-45C0-B976-2121C543CA07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E41C4870-9BBD-4C65-AD2D-7FE641ADE267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E41C4870-9BBD-4C65-AD2D-7FE641ADE267}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E41C4870-9BBD-4C65-AD2D-7FE641ADE267}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E41C4870-9BBD-4C65-AD2D-7FE641ADE267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D882E1-3201-45C0-B976-2121C543CA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D882E1-3201-45C0-B976-2121C543CA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D882E1-3201-45C0-B976-2121C543CA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D882E1-3201-45C0-B976-2121C543CA07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {661938BD-B692-44B1-8884-5EBEB80BC151}
 	EndGlobalSection
 EndGlobal
