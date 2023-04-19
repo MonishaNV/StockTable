@@ -1,4 +1,5 @@
-﻿using StockUi.Model;
+﻿using StockUi.DataBaseOperation;
+using StockUi.Model;
 using StockUi.Services;
 using System;
 using System.Collections.ObjectModel;
@@ -9,20 +10,22 @@ using System.Windows.Media;
 namespace StockUi.ViewModel
 {
 
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged, IDisposable
     {
         private readonly ObservableCollection<Stock> _stocks;
-        private readonly StockLiveUpdateService _stockLiveUpdateService;
+        private readonly IStockLiveUpdateService _stockLiveUpdateService;
+        private DatabaseMaintainOperations _databaseViewmodel;
 
         private Color _raisingStockColor = Colors.Black;
         private Color _fallingStockColor = Colors.Black;
 
-        public MainViewModel()
+        public MainViewModel(IStockLiveUpdateService stockLiveUpdateService)
         {
             _stocks = new ObservableCollection<Stock>();
-
-            _stockLiveUpdateService = new StockLiveUpdateService();
+            _stockLiveUpdateService = stockLiveUpdateService;
             _stockLiveUpdateService.StockUpdated += OnStockUpdated;
+            _databaseViewmodel = new DatabaseMaintainOperations(_stockLiveUpdateService);
+
             _stockLiveUpdateService.ConnectToSignalRHub();
         }
 
@@ -54,6 +57,7 @@ namespace StockUi.ViewModel
             }
             OnPropertyChanged(nameof(Stock));
         }
+
 
         public ObservableCollection<Stock> Stocks => _stocks;
 
@@ -88,5 +92,12 @@ namespace StockUi.ViewModel
         }
 
         public Brush FallingStockBrush => new SolidColorBrush(FallingStockColor);
+
+        public void Dispose()
+        {
+            _stockLiveUpdateService.StockUpdated -= OnStockUpdated;
+            _databaseViewmodel.Dispose();
+        }
+
     }
 }

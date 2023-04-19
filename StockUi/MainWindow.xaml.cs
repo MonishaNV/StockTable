@@ -1,4 +1,5 @@
-﻿using StockUi.ViewModel;
+﻿using StockUi.Services;
+using StockUi.ViewModel;
 using System.Windows;
 
 namespace StockUi
@@ -7,7 +8,7 @@ namespace StockUi
     {
         public MainWindow()
         {
-            DataContext = new MainViewModel();
+            DataContext = new MainViewModel(new StockLiveUpdateService());
             InitializeComponent();
         }
     }

@@ -6,14 +6,12 @@ namespace StockUi.Services
 {
     public class StockLiveUpdateService : IStockLiveUpdateService
     {
-        private HubConnection _hubConnection;
-
-        public async void ConnectToSignalRHub()
-        {
-            _hubConnection = new HubConnectionBuilder()
+        private HubConnection _hubConnection = new HubConnectionBuilder()
                 .WithUrl("https://js.devexpress.com/Demos/NetCore/liveUpdateSignalRHub")
                 .Build();
 
+        public async void ConnectToSignalRHub()
+        {
             _hubConnection.On<Stock>("updateStockPrice", stock =>
             {
                 App.Current.Dispatcher.Invoke(() =>
